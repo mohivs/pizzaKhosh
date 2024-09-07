@@ -1,14 +1,16 @@
-const API_URL = 'https://restaurant-test.liara.run/api/v1/foods';
+const API_URL = 'http://127.0.0.1:3000/api/v1';
+// const API_URL = 'https://dog.ceo/api/breeds/image/random';
 
 export async function getMenu() {
   console.log(API_URL);
-  const res = await fetch(`${API_URL}`);
-  console.log(res);
+  const res = await fetch(`${API_URL}/foods`);
 
   // fetch won't throw error on 400 errors (e.g. when URL is wrong), so we need to do it manually. This will then go into the catch block, where the message is set
   if (!res.ok) throw Error('Failed getting menu');
 
   const { data } = await res.json();
+  console.log(data);
+
   return data;
 }
 
@@ -22,7 +24,7 @@ export async function getOrder(id) {
 
 export async function createOrder(newOrder) {
   try {
-    const res = await fetch(`${API_URL}/order`, {
+    const res = await fetch(`${API_URL}/orders`, {
       method: 'POST',
       body: JSON.stringify(newOrder),
       headers: {

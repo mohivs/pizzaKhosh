@@ -40,13 +40,12 @@ function CreateOrder() {
   if (!cart.length) return <EmptyCart />;
 
   return (
-    <div className="px-4 py-6">
-      <h2 className="mb-8 text-xl font-semibold">Ready to order? Let's go!</h2>
+    <div className="px-4 py-6" dir="rtl">
+      <h2 className="mb-8 text-xl font-semibold">آماده ثبت سفارش هستید؟</h2>
 
-      {/* <Form method="POST" action="/order/new"> */}
       <Form method="POST">
         <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
-          <label className="sm:basis-40">First Name</label>
+          <label className="sm:basis-40">نام</label>
           <input
             className="input grow"
             type="text"
@@ -57,7 +56,7 @@ function CreateOrder() {
         </div>
 
         <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
-          <label className="sm:basis-40">Phone number</label>
+          <label className="sm:basis-40">شماره تماس</label>
           <div className="grow">
             <input className="input w-full" type="tel" name="phone" required />
             {formErrors?.phone && (
@@ -69,7 +68,7 @@ function CreateOrder() {
         </div>
 
         <div className="relative mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
-          <label className="sm:basis-40">Address</label>
+          <label className="sm:basis-40">آدرس</label>
           <div className="grow">
             <input
               className="input w-full"
@@ -86,7 +85,7 @@ function CreateOrder() {
             )}
           </div>
 
-          {!position.latitude && !position.longitude && (
+          {/* {!position.latitude && !position.longitude && (
             <span className="absolute right-[3px] top-[3px] z-50 md:right-[5px] md:top-[5px]">
               <Button
                 disabled={isLoadingAddress}
@@ -99,9 +98,9 @@ function CreateOrder() {
                 Get position
               </Button>
             </span>
-          )}
+          )} */}
         </div>
-
+        {/* 
         <div className="mb-12 flex items-center gap-5">
           <input
             className="h-6 w-6 accent-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400 focus:ring-offset-2"
@@ -114,7 +113,7 @@ function CreateOrder() {
           <label htmlFor="priority" className="font-medium">
             Want to yo give your order priority?
           </label>
-        </div>
+        </div> */}
 
         <div>
           <input type="hidden" name="cart" value={JSON.stringify(cart)} />
@@ -130,8 +129,8 @@ function CreateOrder() {
 
           <Button disabled={isSubmitting || isLoadingAddress} type="primary">
             {isSubmitting
-              ? 'Placing order....'
-              : `Order now from ${formatCurrency(totalPrice)}`}
+              ? 'در حال ارسال....'
+              : `مبلغ نهایی ${formatCurrency(totalPrice)}`}
           </Button>
         </div>
       </Form>
@@ -154,7 +153,7 @@ export async function action({ request }) {
   const errors = {};
   if (!isValidPhone(order.phone))
     errors.phone =
-      'Please give us your correct phone number. We might need it to contact you.';
+      'لطفا شماره تماس معتبر وارد کنید تا بتوانیم با شما تماس بگیریم!';
 
   if (Object.keys(errors).length > 0) return errors;
 

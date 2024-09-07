@@ -3,10 +3,10 @@ import LinkButton from '../../ui/LinkButton';
 function EmptyCart() {
   return (
     <div className="px-4 py-3">
-      <LinkButton to="/menu">&larr; Back to menu</LinkButton>
+      <LinkButton to="/menu">&larr; بازگشت به منو</LinkButton>
 
       <p className="mt-7 font-semibold">
-        Your cart is still empty. Start adding some pizzas :)
+        سبد خرید شما خالی است. لطفا انتخاب کنید! :)
       </p>
     </div>
   );

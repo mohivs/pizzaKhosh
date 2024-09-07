@@ -10,7 +10,9 @@ function Home() {
       <h1 className="mb-8  text-xl font-semibold md:text-3xl">
         پیتزایی متفاوت
         <br />
-        <span className="text-yellow-500">به حرف دلت گوش کن</span>
+        <span className="leading-[70px] text-yellow-500">
+          به حرف دلت گوش کن
+        </span>
       </h1>
 
       {username === '' ? (
