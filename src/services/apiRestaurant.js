@@ -1,4 +1,4 @@
-const API_URL = 'http://127.0.0.1:3000/api/v1';
+const API_URL = 'https://restaurant-test.liara.run/api/v1';
 // const API_URL = 'https://dog.ceo/api/breeds/image/random';
 
 export async function getMenu() {
