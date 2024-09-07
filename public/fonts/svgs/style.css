@@ -1,0 +1,36 @@
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+/* ==========================================
+Single-colored icons can be modified like so:
+.icon-name {
+  font-size: 32px;
+  color: red;
+}
+========================================== */
+
+.icon-bolt {
+  width: 0.5009765625em;
+}
+
+.icon-thermometer {
+  width: 0.5712890625em;
+}
+
+.icon-balance-scale {
+  width: 1.2138671875em;
+}
+
+.icon-cube {
+  width: 0.9287109375em;
+}
+
+.icon-area-chart {
+  width: 1.142578125em;
+}
